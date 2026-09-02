@@ -2,16 +2,27 @@
    loaded in layout.tsx (public/specia1ne-site/_astro/global.*.css). This file
    holds our app-level overrides on top of it. */
 
-/* Rebrand to Float: adopt the previous web's palette (cream paper, ink text,
-   #2563eb blue accent, warm hairlines) over the specia1ne tokens. */
+/* Rebrand to Float: dark + creamish, never blue-led. The template's blue
+   accent becomes near-black ink, so the accent sections/guide/menu read as a
+   dark-on-cream two-tone. Blue survives only as a small third accent below. */
 :root {
   --color-background: #eee9dd !important;
   --color-foreground: #1a1a1a !important;
   --color-foreground-rgb: 26, 26, 26 !important;
-  --color-accent: #2563eb !important;
-  --color-accent-rgb: 37, 99, 235 !important;
+  --color-accent: #1a1a1a !important;
+  --color-accent-rgb: 26, 26, 26 !important;
+  --color-accent-foreground: #f2f1eb !important;
+  --color-accent-foreground-rgb: 242, 241, 235 !important;
   --color-muted: #6d6357 !important;
   --color-faint: #b1a99c !important;
+  --float-blue: #2563eb;
+}
+
+/* The little blue: small numeric eyebrows and the bracket marks, nothing more. */
+.hero__accent,
+.section-header__number,
+.site-button__accent {
+  color: var(--float-blue) !important;
 }
 
 /* Frame the site as a centered ~960px column (was full-bleed at 200rem). */
