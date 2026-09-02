@@ -28,9 +28,9 @@
   color: var(--float-blue) !important;
 }
 
-/* Frame the site as a centered ~960px column (was full-bleed at 200rem). */
+/* Frame the site as a centered column (was full-bleed at 200rem). */
 :root {
-  --site-container-max: 60rem !important; /* 960px */
+  --site-container-max: 72rem !important; /* 1152px */
 }
 
 /* ---- Inner page chrome (Markets, Launchpad, Seats, Top 200, Docs) ---- */
@@ -205,11 +205,11 @@ a.fl-row:hover {
    transparent; the visible dark drawer is panel::before, clipped from the left
    at --overlay-panel-left, and the content is padded from the same var). The
    JS computes that var from the panel width, which leaves the drawer floating
-   in the right margin. Pin it to the frame's right border (50vw + 30rem) so the
+   in the right margin. Pin it to the frame's right border (50vw + 36rem) so the
    drawer's inner edge lands exactly on that border. !important beats the JS's
    inline value. */
 .site-overlay {
-  --overlay-panel-left: calc(50vw + 30rem) !important;
+  --overlay-panel-left: calc(50vw + 36rem) !important;
 }
 
 /* Hairline divider directly under the hero's "Let's talk" button. The hero is
@@ -295,7 +295,7 @@ a.fl-row:hover {
 .mega-footer .mf-in {
   position: relative;
   z-index: 1;
-  max-width: 60rem;
+  max-width: 72rem;
   margin: 0 auto;
   padding: 2.5rem var(--site-gutter) clamp(10rem, 24vh, 15rem);
   height: 100%;
@@ -390,8 +390,8 @@ a.fl-row:hover {
   pointer-events: none;
 }
 .site-main::before {
-  left: max(var(--site-gutter), calc(50% - 30rem));
+  left: max(var(--site-gutter), calc(50% - 36rem));
 }
 .site-main::after {
-  right: max(var(--site-gutter), calc(50% - 30rem));
+  right: max(var(--site-gutter), calc(50% - 36rem));
 }
