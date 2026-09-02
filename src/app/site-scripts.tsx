@@ -37,5 +37,24 @@ export function SiteScripts() {
     add(MOTION_ENTRY, true);
   }, []);
 
+  // Reluctant scroll into the footer reveal: past the content end, wheel input
+  // is damped (ported from the previous web).
+  useEffect(() => {
+    const RESIST = 0.22;
+    const onWheel = (e: WheelEvent) => {
+      const footer = document.querySelector<HTMLElement>(".mega-footer");
+      if (!footer || e.deltaY <= 0) return;
+      const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const boundary = maxScroll - footer.offsetHeight;
+      if (window.scrollY >= boundary - 2) {
+        e.preventDefault();
+        window.scrollBy(0, e.deltaY * RESIST);
+      }
+    };
+    window.addEventListener("wheel", onWheel, { passive: false });
+    return () => window.removeEventListener("wheel", onWheel);
+  }, []);
+
   return null;
 }

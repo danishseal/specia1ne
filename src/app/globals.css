@@ -53,6 +53,11 @@
   --mf-h: clamp(22rem, 46vh, 29rem);
 }
 .site-main {
+  /* Sit above the pinned footer with a solid ground so the footer is hidden
+     until the content scrolls up past it (the margin is the reveal gap). */
+  position: relative;
+  z-index: 1;
+  background: var(--color-background);
   margin-bottom: var(--mf-h);
 }
 .mega-footer {
@@ -65,7 +70,25 @@
   background: var(--color-background);
   color: var(--color-foreground);
 }
+/* Boat-on-waves band, full-bleed across the bottom of the footer, behind the
+   content. Drop the asset at public/specia1ne-site/brand/footer-boat.png. */
+.mf-boat {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: none;
+  height: auto;
+  max-height: 78%;
+  object-fit: contain;
+  object-position: bottom;
+  pointer-events: none;
+  z-index: 0;
+}
 .mega-footer .mf-in {
+  position: relative;
+  z-index: 1;
   max-width: 60rem;
   margin: 0 auto;
   padding: 2.5rem var(--site-gutter) 1.5rem;
