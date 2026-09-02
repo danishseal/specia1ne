@@ -5,7 +5,7 @@ const SITE = "/specia1ne-site";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://specia1ne.com"),
-  title: "Specia1ne — Product interfaces and web systems",
+  title: "Float",
   description:
     "Independent digital practice shaping product interfaces, web systems and visual direction from first idea to working form.",
   applicationName: "Specia1ne",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f2f1eb",
+  themeColor: "#eee9dd",
   width: "device-width",
   initialScale: 1,
 };

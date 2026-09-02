@@ -2,9 +2,139 @@
    loaded in layout.tsx (public/specia1ne-site/_astro/global.*.css). This file
    holds our app-level overrides on top of it. */
 
+/* Rebrand to Float: adopt the previous web's palette (cream paper, ink text,
+   #2563eb blue accent, warm hairlines) over the specia1ne tokens. */
+:root {
+  --color-background: #eee9dd !important;
+  --color-foreground: #1a1a1a !important;
+  --color-foreground-rgb: 26, 26, 26 !important;
+  --color-accent: #2563eb !important;
+  --color-accent-rgb: 37, 99, 235 !important;
+  --color-muted: #6d6357 !important;
+  --color-faint: #b1a99c !important;
+}
+
 /* Frame the site as a centered ~960px column (was full-bleed at 200rem). */
 :root {
   --site-container-max: 60rem !important; /* 960px */
+}
+
+/* Navbar brand: Float logo + wordmark (replaces the specia1ne mark). Color
+   inherits so it follows the header's light/dark layer over sections. */
+/* Kill the old specia1ne brand-mark entirely so it can never flash on the
+   header reveal/hover. The Float logo lives in .fl-logo instead. */
+.site-header__brand-mark {
+  display: none !important;
+}
+.fl-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  color: inherit;
+}
+.fl-logo {
+  height: 1.6rem;
+  width: auto;
+  display: block;
+}
+.fl-wordmark {
+  font-weight: 700;
+  font-size: 1.375rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: inherit;
+}
+
+/* Reveal ("fake") footer, ported from the previous web: pinned behind the
+   page; the content scrolls up to reveal it, with the frame borders running
+   over it. */
+:root {
+  --mf-h: clamp(22rem, 46vh, 29rem);
+}
+.site-main {
+  margin-bottom: var(--mf-h);
+}
+.mega-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--mf-h);
+  z-index: 0;
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+.mega-footer .mf-in {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2.5rem var(--site-gutter) 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.mf-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.mf-brand {
+  font-weight: 700;
+  font-size: 1.75rem;
+  letter-spacing: -0.03em;
+  color: var(--color-foreground);
+  text-decoration: none;
+}
+.mf-brand span {
+  color: var(--color-accent);
+}
+.mf-tag {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  max-width: 22rem;
+}
+.mf-cols {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.mf-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.mf-col h4 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.mf-col a {
+  font-size: 0.9375rem;
+  color: var(--color-foreground);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.mf-col a:hover {
+  color: var(--color-accent);
+}
+.mf-base {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-hairline);
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.6875rem;
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
 }
 
 /* The hero headline is sized off the viewport (up to 7vw / 15rem) for a
