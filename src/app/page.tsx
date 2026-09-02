@@ -1,11 +1,22 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { SiteScripts } from "./site-scripts";
+
+// The studio site markup, ported out of the compiled Astro build so it renders
+// as a real Next route (no iframe). Editable at src/site/home-markup.html; we
+// carve it into discrete components as we modify each section.
+const HOME_HTML = readFileSync(
+  join(process.cwd(), "src/site/home-markup.html"),
+  "utf8",
+);
+
 export default function Home() {
   return (
-    <main className="mirror-shell">
-      <iframe
-        className="mirror-frame"
-        src="/specia1ne-site/index.html"
-        title="Specia1ne — Product interfaces and web systems"
-      />
-    </main>
+    <>
+      {/* display:contents so this wrapper adds no box of its own and <main>
+          stays a direct flow child of <body>, matching the original DOM. */}
+      <div style={{ display: "contents" }} dangerouslySetInnerHTML={{ __html: HOME_HTML }} />
+      <SiteScripts />
+    </>
   );
 }
