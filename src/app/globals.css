@@ -30,6 +30,174 @@
   --site-container-max: 60rem !important; /* 960px */
 }
 
+/* ---- Inner page chrome (Markets, Launchpad, Seats, Top 200, Docs) ---- */
+.fl-pagehead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--color-hairline);
+}
+.fl-nav {
+  display: flex;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+}
+.fl-nav__link {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.2s var(--ease-out, ease);
+}
+.fl-nav__link:hover {
+  color: var(--color-foreground);
+}
+.fl-nav__link[aria-current="page"] {
+  color: var(--color-foreground);
+}
+.fl-pagebody {
+  width: min(100%, var(--site-container-max));
+  margin-inline: auto;
+  padding-inline: var(--site-gutter);
+  padding-top: clamp(2.75rem, 7vh, 4.5rem);
+  padding-bottom: clamp(3rem, 9vh, 5.5rem);
+  min-height: 64vh;
+}
+.fl-eyebrow {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0 0 1.1rem;
+}
+.fl-eyebrow b {
+  color: var(--float-blue);
+  font-weight: 500;
+}
+.fl-h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  margin: 0;
+  max-width: 20ch;
+}
+.fl-lede {
+  color: var(--color-muted);
+  max-width: 44ch;
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.fl-board {
+  margin-top: clamp(2rem, 5vh, 3.25rem);
+  border-top: 1px solid var(--color-hairline);
+}
+.fl-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.5rem 1.5rem;
+  align-items: center;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--color-hairline);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.18s var(--ease-out, ease);
+}
+a.fl-row:hover {
+  background: var(--color-hover-tint, rgba(26, 26, 26, 0.04));
+}
+.fl-row__num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  color: var(--float-blue);
+  align-self: start;
+  padding-top: 0.5rem;
+}
+.fl-row__main {
+  min-width: 0;
+}
+.fl-row__name {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.fl-row__cat {
+  display: block;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-top: 0.35rem;
+}
+.fl-row__right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  min-width: 8rem;
+}
+.fl-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-hairline);
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+.fl-badge--live {
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+  border-color: var(--color-accent);
+}
+.fl-price {
+  font-family: var(--font-mono, monospace);
+  font-variant-numeric: tabular-nums;
+  font-size: 1.05rem;
+  color: var(--color-foreground);
+}
+.fl-bar {
+  height: 3px;
+  width: 11rem;
+  max-width: 44vw;
+  background: var(--color-hairline);
+  overflow: hidden;
+}
+.fl-bar__fill {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+}
+.fl-fund {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+}
+@media (max-width: 34rem) {
+  .fl-row {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .fl-row__right {
+    grid-column: 2;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
 /* Navbar brand: Float logo + wordmark (replaces the specia1ne mark). Color
    inherits so it follows the header's light/dark layer over sections. */
 /* Kill the old specia1ne brand-mark entirely so it can never flash on the
