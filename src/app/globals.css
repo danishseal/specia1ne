@@ -16,6 +16,9 @@
   --color-muted: #6d6357 !important;
   --color-faint: #b1a99c !important;
   --float-blue: #2563eb;
+  /* No mono anywhere (standing preference): route the mono token to the sans
+     family so every eyebrow, label, number and nav link renders in Geist. */
+  --font-mono: var(--font-sans, "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif) !important;
 }
 
 /* The little blue: small numeric eyebrows and the bracket marks, nothing more. */
@@ -213,7 +216,7 @@ a.fl-row:hover {
   color: inherit;
 }
 .fl-logo {
-  height: 1.6rem;
+  height: 2.4rem;
   width: auto;
   display: block;
 }
@@ -229,7 +232,7 @@ a.fl-row:hover {
    page; the content scrolls up to reveal it, with the frame borders running
    over it. */
 :root {
-  --mf-h: clamp(22rem, 46vh, 29rem);
+  --mf-h: clamp(28rem, 56vh, 34rem);
 }
 .site-main {
   /* Sit above the pinned footer with a solid ground so the footer is hidden
@@ -258,10 +261,12 @@ a.fl-row:hover {
   transform: translateX(-50%);
   width: 100vw;
   max-width: none;
-  height: auto;
-  max-height: 78%;
-  object-fit: contain;
-  object-position: bottom;
+  height: clamp(11rem, 26vh, 16rem);
+  object-fit: cover;
+  object-position: center bottom;
+  /* fade the top of the band into the cream so there's no hard crop line */
+  -webkit-mask-image: linear-gradient(to top, #000 62%, transparent);
+  mask-image: linear-gradient(to top, #000 62%, transparent);
   pointer-events: none;
   z-index: 0;
 }
@@ -270,7 +275,7 @@ a.fl-row:hover {
   z-index: 1;
   max-width: 60rem;
   margin: 0 auto;
-  padding: 2.5rem var(--site-gutter) 1.5rem;
+  padding: 2.5rem var(--site-gutter) clamp(10rem, 24vh, 15rem);
   height: 100%;
   display: flex;
   flex-direction: column;
