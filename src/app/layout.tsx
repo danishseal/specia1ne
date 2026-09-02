@@ -4,12 +4,12 @@ import "./globals.css";
 const SITE = "/specia1ne-site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://specia1ne.com"),
+  metadataBase: new URL("https://specia1ne-one.vercel.app"),
   title: "Float",
   description:
-    "Independent digital practice shaping product interfaces, web systems and visual direction from first idea to working form.",
-  applicationName: "Specia1ne",
-  authors: [{ name: "Specia1ne" }],
+    "A 24/7 on-chain dealer for the stocks Robinhood hasn't tokenized. Every listing quotes against a live oracle and is backed by real shares.",
+  applicationName: "Float",
+  authors: [{ name: "Float" }],
   referrer: "strict-origin-when-cross-origin",
   alternates: { canonical: "/" },
   robots: {
@@ -20,28 +20,19 @@ export const metadata: Metadata = {
     "max-video-preview": -1,
   },
   openGraph: {
-    title: "Specia1ne — Product interfaces and web systems",
+    title: "Float. Trade the stocks Robinhood hasn't tokenized.",
     description:
-      "Independent digital practice shaping product interfaces, web systems and visual direction from first idea to working form.",
+      "A 24/7 on-chain dealer for the stocks Robinhood hasn't tokenized. Every listing quotes against a live oracle and is backed by real shares.",
     url: "/",
-    siteName: "Specia1ne",
+    siteName: "Float",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: `${SITE}/og.png`,
-        width: 2400,
-        height: 1260,
-        alt: "Specia1ne — digital products, interfaces and systems.",
-      },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Specia1ne — Product interfaces and web systems",
+    card: "summary",
+    title: "Float. Trade the stocks Robinhood hasn't tokenized.",
     description:
-      "Independent digital practice shaping product interfaces, web systems and visual direction from first idea to working form.",
-    images: [`${SITE}/og.png`],
+      "A 24/7 on-chain dealer for the stocks Robinhood hasn't tokenized. Every listing quotes against a live oracle and is backed by real shares.",
   },
   icons: {
     icon: [
@@ -50,7 +41,7 @@ export const metadata: Metadata = {
       { url: `${SITE}/favicons/favicon-32.png`, type: "image/png", sizes: "32x32" },
     ],
     apple: [{ url: `${SITE}/favicons/apple-touch-icon.png`, sizes: "180x180" }],
-    other: [{ rel: "mask-icon", url: `${SITE}/favicons/safari-pinned-tab.svg`, color: "#1d39f5" }],
+    other: [{ rel: "mask-icon", url: `${SITE}/favicons/safari-pinned-tab.svg`, color: "#1a1a1a" }],
   },
   formatDetection: { telephone: false },
 };
