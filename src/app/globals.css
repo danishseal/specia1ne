@@ -212,6 +212,18 @@ a.fl-row:hover {
   --overlay-panel-left: calc(50vw + 30rem) !important;
 }
 
+/* Hairline divider directly under the hero's "Let's talk" button. The hero is
+   a grid (intro=row2, bottom/button=row4); place the rule in row 5 so it lands
+   right beneath the button instead of auto-flowing into the empty top row. */
+.hero__rule {
+  grid-row: 5;
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 1rem;
+  background: var(--color-hairline);
+}
+
 /* Navbar brand: Float logo + wordmark (replaces the specia1ne mark). Color
    inherits so it follows the header's light/dark layer over sections. */
 /* Kill the old specia1ne brand-mark entirely so it can never flash on the
