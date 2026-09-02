@@ -201,6 +201,17 @@ a.fl-row:hover {
   }
 }
 
+/* Menu overlay: the open overlay runs in "axis" mode (panel is 100vw and
+   transparent; the visible dark drawer is panel::before, clipped from the left
+   at --overlay-panel-left, and the content is padded from the same var). The
+   JS computes that var from the panel width, which leaves the drawer floating
+   in the right margin. Pin it to the frame's right border (50vw + 30rem) so the
+   drawer's inner edge lands exactly on that border. !important beats the JS's
+   inline value. */
+.site-overlay {
+  --overlay-panel-left: calc(50vw + 30rem) !important;
+}
+
 /* Navbar brand: Float logo + wordmark (replaces the specia1ne mark). Color
    inherits so it follows the header's light/dark layer over sections. */
 /* Kill the old specia1ne brand-mark entirely so it can never flash on the
@@ -259,8 +270,7 @@ a.fl-row:hover {
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
-  width: 100vw;
-  max-width: none;
+  width: min(100%, var(--site-container-max));
   height: clamp(11rem, 26vh, 16rem);
   object-fit: cover;
   object-position: center bottom;
