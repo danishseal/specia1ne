@@ -1,3 +1,38 @@
 /* The studio design ships its own reset + tokens via the compiled stylesheet
-   loaded in layout.tsx (public/specia1ne-site/_astro/global.*.css). We keep
-   this file empty so nothing competes with it. Add app-level overrides here. */
+   loaded in layout.tsx (public/specia1ne-site/_astro/global.*.css). This file
+   holds our app-level overrides on top of it. */
+
+/* Frame the site as a centered ~960px column (was full-bleed at 200rem). */
+:root {
+  --site-container-max: 60rem !important; /* 960px */
+}
+
+/* The hero headline is sized off the viewport (up to 7vw / 15rem) for a
+   full-bleed layout; pin it to the column so it doesn't overflow. Must be set
+   on .hero (not :root) because the design redeclares the var there, and
+   inheritance takes the nearest ancestor's value. Everything else (project
+   names, section titles, descriptions) already fits at 960. */
+.hero {
+  --hero-headline-size: clamp(2.25rem, 4.6vw, 3.5rem) !important;
+}
+
+/* Continuous side borders at the column edges, in the design's own hairline
+   color, matching the existing centered guide line. Fixed so the rules stay
+   unbroken across section gaps and the pinned-scroll transitions. */
+.site-main::before,
+.site-main::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-hairline);
+  z-index: 4;
+  pointer-events: none;
+}
+.site-main::before {
+  left: max(var(--site-gutter), calc(50% - 30rem));
+}
+.site-main::after {
+  right: max(var(--site-gutter), calc(50% - 30rem));
+}
